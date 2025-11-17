@@ -14,10 +14,13 @@
   flex-shrink: 1;
   flex-grow: 1;
   flex-basis: 90%;  /* flex-basis practice */
+  /*max-width: 90%;*/
+   flex-wrap: wrap;
 }
 
 /* STUDENT CODE STARTS HERE */
 @media (min-width: 768px){
+  *{box-sizing: border-box;}
   .grid {
     grid-template-columns: 45% 45%;
     gap: 10px; 
@@ -27,6 +30,7 @@
   .gallery { 
     
     justify-content: space-around;
+    
 
   }
   .gallery img { 
@@ -45,13 +49,17 @@
 
 } 
 @media(min-width: 1200px){
+  .grid > div:nth-child(3n){
+    grid-column: auto;
+    width: 100%;
+  }
   .grid{
-    grid-template-columns:  repeat(auto-fit, minmax(350px, 1fr));
-    gap: 15px; 
+    grid-template-columns:repeat(auto-fit, minmax(350px, 1fr));
   }
   .gallery{
     justify-content: space-between;
   }
+    
   .gallery img {
     flex: 1 1 200px;
 
@@ -59,7 +67,6 @@
   .grid > div:hover{
     box-shadow: 0 6px 10px purple;
   }
-
 }
 @media print {
   body{
